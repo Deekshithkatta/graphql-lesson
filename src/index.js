@@ -6,6 +6,11 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './redux/store';
 
+import {ApolloProvider} from 'react-apollo' // Access to state stored in Apollo
+import {createHttpLink} from 'apollo-link-http' // Connet to client (graphql)
+import {InMemoryCache} from 'apollo-cache-inmemory' //Cache for performance
+import {ApolloClient} from 'apollo-boost' //
+
 import './index.css';
 import App from './App';
 
