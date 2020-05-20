@@ -24,7 +24,7 @@ const CollectionsOverviewContainer = () => (
         {
             (
                 {
-                    loading,error,data
+                    loading,data
                 }
             ) => {
                 if (loading) return <Spinner />;
