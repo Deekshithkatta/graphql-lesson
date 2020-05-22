@@ -14,6 +14,10 @@ import {ApolloClient, gql} from 'apollo-boost' // Bundle of smaller libraries, g
 import './index.css';
 import App from './App';
 
+import {resolvers, typeDefs} from './graphql/resolver'
+
+
+
 // Link to GraphQL server
 const httpLink = createHttpLink({
   uri: 'https://crwn-clothing.com'
@@ -24,10 +28,17 @@ const cache = new InMemoryCache()
 
 const client =  new ApolloClient({
   link: httpLink,
-  cache
+  cache,
+  typeDefs,
+  resolvers
 })
 
-
+// Mutation to cart hidden
+client.writeData( {
+  data: {
+    cartHidden: true
+  }
+} );
 
 client.query({
   query: gql`
